@@ -24,3 +24,18 @@ export const binarySearch = (array: number[], value: number) => {
     console.timeEnd('binary search')
     return null
 }
+
+
+export const binaryRecursion = (arr: number[], value: number): number=> {
+    let mid = Math.floor(arr.length / 2);
+    if (!arr.length) {
+        return -1;
+    }
+    if (value === arr[mid]) {
+        return mid;
+    } else if (value < arr[mid]) {
+        return binaryRecursion(arr.slice(0, mid), value);
+    } else if (value > arr[mid]) {
+        return mid + binaryRecursion(arr.slice(mid), value);
+    } return -1
+}
